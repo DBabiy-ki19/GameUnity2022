@@ -42,11 +42,11 @@ public class PlayerController : MonoBehaviour
             spriteRen.flipX = !(movementInput.x > 0);
             bool success = TryMove(movementInput);
 
-            if (!success)
+            if (!success && movementInput.x > 0)
             {
                 success = TryMove(new Vector2(movementInput.x, 0));
 
-                if (!success)
+                if (!success && movementInput.y > 0)
                 {
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
