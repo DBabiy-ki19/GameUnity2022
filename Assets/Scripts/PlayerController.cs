@@ -45,11 +45,11 @@ public class PlayerController : MonoBehaviour
             if (!success && movementInput.x > 0)
             {
                 success = TryMove(new Vector2(movementInput.x, 0));
+            }
 
-                if (!success && movementInput.y > 0)
-                {
-                    success = TryMove(new Vector2(0, movementInput.y));
-                }
+            if (!success && movementInput.y > 0)
+            {
+                success = TryMove(new Vector2(0, movementInput.y));
             }
 
             animator.SetBool("IsMoving", success);
