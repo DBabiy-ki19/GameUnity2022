@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private int count;
-
     public float moveSpeed = 1f;
 
     public float collisionOffset = 0.05f;
@@ -21,7 +19,11 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer spriteRen;
 
+    private int count;
+
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+
+    bool canMove = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -37,49 +39,81 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movementInput != Vector2.zero)
+        if (canMove)
         {
-            spriteRen.flipX = !(movementInput.x > 0);
-            bool success = TryMove(movementInput);
-
-            if (!success && movementInput.x > 0)
+            if (movementInput != Vector2.zero)
             {
-                success = TryMove(new Vector2(movementInput.x, 0));
-            }
+                bool success = TryMove(movementInput);
 
-            if (!success && movementInput.y > 0)
+                if (movementInput.x < 0)
+                {
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+
+                }
+
+                if (!success && movementInput.x > 0)
+                {
+                    success = TryMove(new Vector2(movementInput.x, 0));
+                }
+
+                if (!success && movementInput.y > 0)
+                {
+                    success = TryMove(new Vector2(0, movementInput.y));
+                }
+
+                animator.SetBool("IsMoving", success);
+            }
+            else
             {
-                success = TryMove(new Vector2(0, movementInput.y));
+                animator.SetBool("IsMoving", false);
             }
-
-            animator.SetBool("IsMoving", success);
-        }   else{
-            animator.SetBool("IsMoving", false);
         }
     }
 
     private bool TryMove(Vector2 direction)
     {
-         count = rb.Cast(
-         direction,
-         movementFilter,
-         castCollisions,
-         moveSpeed * Time.fixedDeltaTime + collisionOffset);
+        count = rb.Cast(
+        direction,
+        movementFilter,
+        castCollisions,
+        moveSpeed * Time.fixedDeltaTime + collisionOffset);
 
-        
+
 
         if (count == 0)
         {
             rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
             return true;
-        } else
+        }
+        else
         {
             return false;
         }
     }
 
-    private void OnMove (InputValue movementValue)
+    private void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
     }
+
+    private void OnFire()
+    {
+        animator.SetTrigger("swordAttack");
+    }
+
+    public void LockMovement()
+    {
+        canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        canMove = true;
+    }
 }
+

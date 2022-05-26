@@ -61619,7 +61619,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7192982, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -61699,10 +61699,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3310261976016594106, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 176572398698009624, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
       propertyPath: m_Name
       value: Player
@@ -61710,18 +61706,6 @@ PrefabInstance:
     - target: {fileID: 1919115184645497002, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919115184645497002, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919115184645497002, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919115184645497002, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1919115184645497002, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61763,25 +61747,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4020726005459916362, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_FlipX
+    - target: {fileID: 3446099570893383269, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_Size.x
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446099570893383269, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_Size.y
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446099570893383269, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4020726005459916362, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5585664478362571460, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_Actions
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 2aae9f6dcbaabd64e8648c2e89fd71a9, type: 3}
-    - target: {fileID: 5585664478362571460, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5585664478362571460, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
-      propertyPath: m_NotificationBehavior
+    - target: {fileID: 3446099570893383269, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_EdgeRadius
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094523552118784667, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094523552118784667, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699414319086324547, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699414319086324547, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699414319086324547, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699414319086324547, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -62669,8 +62673,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
-  m_YDamping: 1
+  m_XDamping: 0.3
+  m_YDamping: 0.3
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
