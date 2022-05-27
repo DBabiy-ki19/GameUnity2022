@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public SwordAttack swordAttack;
+
     public float moveSpeed = 1f;
 
     public float collisionOffset = 0.05f;
@@ -17,8 +19,6 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
-    private SpriteRenderer spriteRen;
-
     private int count;
 
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        spriteRen = GetComponent<SpriteRenderer>();
     }
 
 
@@ -104,15 +103,18 @@ public class PlayerController : MonoBehaviour
     private void OnFire()
     {
         animator.SetTrigger("swordAttack");
+        
     }
 
     public void LockMovement()
     {
+        swordAttack.swordCollider.enabled = true;
         canMove = false;
     }
 
     public void UnlockMovement()
     {
+        swordAttack.swordCollider.enabled = false;
         canMove = true;
     }
 }
