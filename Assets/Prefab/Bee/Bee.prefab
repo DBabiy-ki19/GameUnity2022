@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2026659137707032044}
   - component: {fileID: -1703862735270293639}
   - component: {fileID: 2220213002305536593}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -136,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb8be9766ae27b45b13517a5acc6eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 100

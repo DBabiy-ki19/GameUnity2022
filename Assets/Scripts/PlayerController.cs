@@ -5,8 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public SwordAttack swordAttack;
+    //for attack
+    //--------------------------
+    public int attackDamage = 40;
 
+    public float attackRange = 0.5f;
+
+    public Transform attackPoint;
+
+    public LayerMask enemyLayers;
+    //---------------------------
     public float moveSpeed = 1f;
 
     public float collisionOffset = 0.05f;
@@ -102,19 +110,38 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire()
     {
+        Attack();   
+    }
+
+    void Attack()
+    {
         animator.SetTrigger("swordAttack");
-        
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("hit");
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     public void LockMovement()
     {
-        swordAttack.swordCollider.enabled = true;
         canMove = false;
     }
 
     public void UnlockMovement()
     {
-        swordAttack.swordCollider.enabled = false;
         canMove = true;
     }
 }

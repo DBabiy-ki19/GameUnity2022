@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float Health
+    public int maxHealth = 100;
+    private int currentHealt;
+
+    private void Start()
     {
-        set
-        {
-            print("destroyEnemy");
-            health = value;
-            if(health <= 0)
-            {
-                Defeated();
-            }
-        }
-        get
-        {
-            return health;
-        }
+        currentHealt = maxHealth;
     }
 
-    public float health = 1;
+    public void TakeDamage(int damage)
+    {
+        currentHealt -= damage;
 
-    public void Defeated()
+        if(currentHealt <= 0)
+        {
+            Die();
+        }
+    }
+    
+    void Die()
     {
         Destroy(gameObject);
     }
