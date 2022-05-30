@@ -110,13 +110,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire()
     {
-        Attack();   
+        animator.SetTrigger("swordAttack");
     }
 
-   private void Attack()
+   public void Attack()
     {
-        animator.SetTrigger("swordAttack");
-
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
