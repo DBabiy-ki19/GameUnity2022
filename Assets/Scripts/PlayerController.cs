@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Transform attackPoint;
 
     public LayerMask enemyLayers;
+
     //---------------------------
 
     //player hp
@@ -29,6 +30,17 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
 
     public ContactFilter2D movementFilter;
+
+    //player sound
+    //--------------------------
+
+    private AudioSource audioSourse;
+
+    public AudioClip audioAttackVoid; 
+
+    public AudioClip audioAttackEnemy;
+
+    //---------------------------
 
     private Vector2 movementInput;
 
@@ -51,6 +63,9 @@ public class PlayerController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        audioSourse = GetComponent<AudioSource>();  
+
     }
 
 
@@ -63,6 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movementInput != Vector2.zero)
             {
+
                 bool success = TryMove(movementInput);
 
                 if (movementInput.x < 0)
@@ -126,16 +142,22 @@ public class PlayerController : MonoBehaviour
     {
         TakeDamage(20); // Получение урона от атаки
         animator.SetTrigger("swordAttack");
+
+        audioSourse.PlayOneShot(audioAttackVoid); // Атака по воздуху
+
     }
 
    public void Attack()
     {
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("hit");
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+
+            audioSourse.PlayOneShot(audioAttackEnemy); // Атака по врагу
         }
     }
     public void LockMovement()
