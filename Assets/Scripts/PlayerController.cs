@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //for attack
+    //player attack
     //--------------------------
     public int attackDamage = 40;
 
@@ -15,6 +16,14 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask enemyLayers;
     //---------------------------
+
+    //player hp
+    //---------------------------
+    private int maxHealth = 100;
+    private int currentHealt;
+    public HealthBar healthBar;
+    //---------------------------
+
     public float moveSpeed = 1f;
 
     public float collisionOffset = 0.05f;
@@ -29,20 +38,24 @@ public class PlayerController : MonoBehaviour
 
     private int count;
 
+    private bool canMove = true;
+
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
-    bool canMove = true;
+
 
     // Start is called before the first frame update
     private void Start()
     {
+        currentHealt = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
 
 
-    // Update is called once per frame
+    // Player move
 
     private void FixedUpdate()
     {
@@ -108,8 +121,10 @@ public class PlayerController : MonoBehaviour
         movementInput = movementValue.Get<Vector2>();
     }
 
+    // Player attack
     private void OnFire()
     {
+        TakeDamage(20); // Получение урона от атаки
         animator.SetTrigger("swordAttack");
     }
 
@@ -123,6 +138,15 @@ public class PlayerController : MonoBehaviour
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
+    public void LockMovement()
+    {
+        canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        canMove = true;
+    }
 
     private void OnDrawGizmosSelected()
     {
@@ -132,15 +156,11 @@ public class PlayerController : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
-    public void LockMovement()
+    // Player health point
+    private void TakeDamage(int damage)
     {
-        canMove = false;
-    }
-
-    public void UnlockMovement()
-    {
-        canMove = true;
+        currentHealt -= damage;
+        healthBar.SetHealth(currentHealt);
     }
 }
 

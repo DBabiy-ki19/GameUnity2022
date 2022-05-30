@@ -149,12 +149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86785a3a4062046a005313695b2489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 8699414319086324547}
+  attackDamage: 40
   attackRange: 0.5
+  attackPoint: {fileID: 8699414319086324547}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
-  attackDamage: 40
+    m_Bits: 128
+  healthBar: {fileID: 0}
   moveSpeed: 5
   collisionOffset: 0.05
   movementFilter:
