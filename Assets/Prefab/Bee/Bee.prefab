@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5565786022385036463}
   - component: {fileID: 2026659137707032044}
   - component: {fileID: -1703862735270293639}
-  - component: {fileID: 2220213002305536593}
   - component: {fileID: 5974040567089102066}
+  - component: {fileID: 2220213002305536593}
   m_Layer: 7
   m_Name: Bee
   m_TagString: Enemy
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5565786022385036463
 SpriteRenderer:
@@ -125,20 +125,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.002794672, y: 0.40462738}
   m_Size: {x: 1.0256962, y: 0.68978864}
   m_Direction: 1
---- !u!114 &2220213002305536593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5198223918103908634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb8be9766ae27b45b13517a5acc6eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTr: {fileID: 0}
-  maxHealth: 100
 --- !u!195 &5974040567089102066
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -161,3 +147,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2220213002305536593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198223918103908634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb8be9766ae27b45b13517a5acc6eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTr: {fileID: 0}
+  maxHealth: 100

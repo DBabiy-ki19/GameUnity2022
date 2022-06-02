@@ -5,8 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    public Transform playerTr;
+    //agent + NuvMesh
+    [SerializeField] Transform playerTr;
     private NavMeshAgent agent;
+    //TakeDamage + health
     public int maxHealth = 100;
     private int currentHealt;
 
@@ -19,10 +21,6 @@ public class Enemy : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
-    {
-        agent.SetDestination(playerTr.position);
-    }
     public void TakeDamage(int damage)
     {
         currentHealt -= damage;

@@ -131,11 +131,12 @@ public class PlayerController : MonoBehaviour
    public void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
+        
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("hit");
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Enemy enemy1 = enemy.GetComponent<Enemy>();
+            enemy1.TakeDamage(attackDamage);
         }
     }
     public void LockMovement()
