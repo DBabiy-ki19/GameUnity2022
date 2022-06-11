@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
     //---------------------------
 
+    private MobileController mContr;
+
     public float moveSpeed = 1f;
 
     public float collisionOffset = 0.05f;
@@ -51,6 +53,8 @@ public class PlayerController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        mContr = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>(); // подключил джостик
     }
 
 
@@ -75,7 +79,10 @@ public class PlayerController : MonoBehaviour
                     transform.eulerAngles = new Vector3(0, 0, 0);
 
                 }
-
+                if(mContr.Horizontal() != 0)
+                {
+                    print("move!!!");
+                }
                 if (!success && movementInput.x > 0)
                 {
                     success = TryMove(new Vector2(movementInput.x, 0));
@@ -118,6 +125,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue movementValue)
     {
+        
         movementInput = movementValue.Get<Vector2>();
     }
 
