@@ -103,8 +103,6 @@ public class PlayerController : MonoBehaviour
         castCollisions,
         moveSpeed * Time.fixedDeltaTime + collisionOffset);
 
-
-
         if (count == 0)
         {
             rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
