@@ -61975,7 +61975,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8087349, y: 1}
+    m_SensorSize: {x: 1.564759, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -62298,17 +62298,21 @@ PrefabInstance:
       propertyPath: swordCollider
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: -3310261976016594106, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 176572398698009624, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 176572398698009624, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1515027375687985385, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1919115184645497002, guid: b4e697c08c6d9c0449d3a8d6ae550c35, type: 3}
       propertyPath: m_RootOrder
