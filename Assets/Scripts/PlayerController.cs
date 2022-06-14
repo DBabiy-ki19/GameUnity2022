@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //player attack
+    //for attack
     //--------------------------
     public int attackDamage = 40;
 
@@ -16,14 +15,6 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask enemyLayers;
     //---------------------------
-
-    //player hp
-    //---------------------------
-    public int maxHealth = 100;
-    private int currentHealt;
-    public HealthBar healthBar;
-    //---------------------------
-
     public float moveSpeed = 1f;
 
     public float collisionOffset = 0.05f;
@@ -38,24 +29,20 @@ public class PlayerController : MonoBehaviour
 
     private int count;
 
-    private bool canMove = true;
-
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
-
+    bool canMove = true;
 
     // Start is called before the first frame update
     private void Start()
     {
-        currentHealt = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
 
 
-    // Player move
+    // Update is called once per frame
 
     private void FixedUpdate()
     {
@@ -103,6 +90,8 @@ public class PlayerController : MonoBehaviour
         castCollisions,
         moveSpeed * Time.fixedDeltaTime + collisionOffset);
 
+
+
         if (count == 0)
         {
             rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
@@ -119,32 +108,20 @@ public class PlayerController : MonoBehaviour
         movementInput = movementValue.Get<Vector2>();
     }
 
-    // Player attack
     private void OnFire()
     {
-        TakeDamage(20); // Получение урона от атаки
         animator.SetTrigger("swordAttack");
     }
 
    public void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        
+
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("hit");
-            Enemy enemy1 = enemy.GetComponent<Enemy>();
-            enemy1.TakeDamage(attackDamage);
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
-    }
-    public void LockMovement()
-    {
-        canMove = false;
-    }
-
-    public void UnlockMovement()
-    {
-        canMove = true;
     }
 
     private void OnDrawGizmosSelected()
@@ -155,11 +132,15 @@ public class PlayerController : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-    // Player health point
-    private void TakeDamage(int damage)
+
+    public void LockMovement()
     {
-        currentHealt -= damage;
-        healthBar.SetHealth(currentHealt);
+        canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        canMove = true;
     }
 }
 
