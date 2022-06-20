@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject btnPause;
+    public GameObject btnExit;
 
     public void Resume()
     {
@@ -22,5 +23,12 @@ public class Menu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         btnPause.SetActive(false);
         Time.timeScale = 0f;
+    }
+
+    public void Exit()
+    {
+        Debug.Log("Exit");
+        Application.Quit();
+
     }
 }

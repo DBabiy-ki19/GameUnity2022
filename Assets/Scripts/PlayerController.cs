@@ -79,10 +79,7 @@ public class PlayerController : MonoBehaviour
                     transform.eulerAngles = new Vector3(0, 0, 0);
 
                 }
-                if(mContr.Horizontal() != 0)
-                {
-                    print("move!!!");
-                }
+
                 if (!success && movementInput.x > 0)
                 {
                     success = TryMove(new Vector2(movementInput.x, 0));
