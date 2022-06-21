@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class AI_Enemy : MonoBehaviour
 {
     [SerializeField] Transform guardedObject; // Что охранять
-
+    [SerializeField] Transform player;
     //player attack
     //--------------------------
     public int attackDamage = 40;
@@ -19,7 +19,6 @@ public class AI_Enemy : MonoBehaviour
     public LayerMask enemyLayers;
     //---------------------------
 
-    public Transform player; // Кого атаковать
     public Transform moveSpot; // Точки по которым патрулирует объект
     public float startWaitTimePatrol; // Время ожидания (Патруль)
     public float startWaitTimeAttack; // Время ожидания (Атака)
