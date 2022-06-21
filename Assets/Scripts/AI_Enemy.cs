@@ -7,6 +7,18 @@ using UnityEngine.AI;
 public class AI_Enemy : MonoBehaviour
 {
     [SerializeField] Transform guardedObject; // Что охранять
+
+    //player attack
+    //--------------------------
+    public int attackDamage = 40;
+
+    public float attackRange = 0.5f;
+
+    public Transform attackPoint;
+
+    public LayerMask enemyLayers;
+    //---------------------------
+
     public Transform player; // Кого атаковать
     public Transform moveSpot; // Точки по которым патрулирует объект
     public float startWaitTimePatrol; // Время ожидания (Патруль)
@@ -35,7 +47,7 @@ public class AI_Enemy : MonoBehaviour
     }
 
 
-    private void Chill()
+    private void Chill() //патрулирование объекта (двигается по сгенерированным точкам)
     {
         agent.speed = 1;
         if (chill)
@@ -58,7 +70,7 @@ public class AI_Enemy : MonoBehaviour
 
     }
 
-    private void Angry()
+    private void Angry() // ИИ атакует
     {
         if (Vector2.Distance(player.transform.position, transform.position) < 4f)
             {
@@ -67,15 +79,18 @@ public class AI_Enemy : MonoBehaviour
                 agent.acceleration = 5;
                 agent.stoppingDistance = 1f;
                 agent.SetDestination(player.transform.position);
-                waitTimeAttack = startWaitTimeAttack;
             }
-            else
-            {
-                chill = true;
-            }
+        if (Vector2.Distance(player.transform.position, attackPoint.position) < 1f)
+        {
+            animator.SetTrigger("BeeAttack");
+        }
+        else
+        {
+            chill = true;
+        }
     }
 
-    public Vector2 RandomPointInAnnulus(Vector2 center, float minRadius, float maxRadius)
+    public Vector2 RandomPointInAnnulus(Vector2 center, float minRadius, float maxRadius) //Функция генерация точки для патрулирования
     {
 
         var randomDirection = (Random.insideUnitCircle * center).normalized;
@@ -87,24 +102,27 @@ public class AI_Enemy : MonoBehaviour
         return point;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void Attack()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
         {
-            animator.SetTrigger("BeeAttack");
+            PlayerController player = enemy.GetComponent<PlayerController>();
+            player.TakeDamage(attackDamage);
         }
     }
 
-    public void ClearWaitTimeAttack()
-    {
-        waitTimeAttack = startWaitTimeAttack;
-    }
     private void OnDrawGizmosSelected()
     {
         
         Gizmos.DrawWireSphere(guardedObject.position, 1f);
         Gizmos.DrawWireSphere(guardedObject.position, 3f);
         Gizmos.DrawWireSphere(transform.position, 4f);
-
+        if (attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

@@ -122,7 +122,6 @@ public class PlayerController : MonoBehaviour
     // Player attack
     private void OnFire()
     {
-        TakeDamage(20); // Получение урона от атаки
         animator.SetTrigger("swordAttack");
     }
 
@@ -137,6 +136,7 @@ public class PlayerController : MonoBehaviour
             enemy1.TakeDamage(attackDamage);
         }
     }
+
     public void LockMovement()
     {
         canMove = false;
@@ -155,8 +155,9 @@ public class PlayerController : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
     // Player health point
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealt -= damage;
         healthBar.SetHealth(currentHealt);
