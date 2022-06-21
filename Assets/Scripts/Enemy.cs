@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     //TakeDamage + health
     public int maxHealth = 100;
     private int currentHealt;
-
     private void Start()
     {
         currentHealt = maxHealth;
@@ -17,7 +16,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealt -= damage;
-
         if(currentHealt <= 0)
         {
             Die();
