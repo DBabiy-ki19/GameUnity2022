@@ -25,14 +25,14 @@ public class AI_Enemy : MonoBehaviour
     private NavMeshAgent agent; // Управление NavMeshAgent
     private Animator animator; // Анимации
     private float waitTimePatrol; // Время ожидания (счётчик-патруль)
-    private float waitTimeAttack; // Время ожидания (счётчик-атака)
-    bool chill = true;
+    private bool chill = true;
+    private Vector2 direction;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
 
         waitTimePatrol = startWaitTimePatrol;
-        waitTimeAttack = startWaitTimeAttack;
         moveSpot.position = RandomPointInAnnulus(guardedObject.position, 1f, 3f);
 
         agent = GetComponent<NavMeshAgent>();
@@ -43,6 +43,7 @@ public class AI_Enemy : MonoBehaviour
     {
         Chill();
         Angry();
+        
     }
 
 
@@ -52,6 +53,7 @@ public class AI_Enemy : MonoBehaviour
         if (chill)
         {
             agent.SetDestination(moveSpot.position);
+            //FlipX(moveSpot.position);
 
             if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f)
             {
@@ -71,22 +73,22 @@ public class AI_Enemy : MonoBehaviour
 
     private void Angry() // ИИ атакует
     {
-        if (Vector2.Distance(player.transform.position, transform.position) < 4f)
+            if (Vector2.Distance(player.transform.position, transform.position) < 4f)
             {
                 chill = false;
                 agent.speed = 3;
                 agent.acceleration = 5;
                 agent.stoppingDistance = 1f;
                 agent.SetDestination(player.transform.position);
+                //FlipX(player.transform.position);
             }
-        if (Vector2.Distance(player.transform.position, attackPoint.position) < 1f)
-        {
-            animator.SetTrigger("BeeAttack");
-        }
-        else
-        {
+            if (Vector2.Distance(player.transform.position, attackPoint.position) < 1f)
+            {
+
+                animator.SetTrigger("BeeAttack");
+            }
+
             chill = true;
-        }
     }
 
     public Vector2 RandomPointInAnnulus(Vector2 center, float minRadius, float maxRadius) //Функция генерация точки для патрулирования
@@ -123,5 +125,17 @@ public class AI_Enemy : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    private void FlipX(Vector3 stalking)
+    {
+        if (Mathf.Abs(transform.position.x) - Mathf.Abs(stalking.x) < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 }

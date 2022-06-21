@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: afe070cae64938a4c98899bd71e60ef7
+guid: 14e7b3f9c1673e045b231bd26fad583e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -118,85 +118,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chest_01_0
+      name: Sprite-0004_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 284
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9de1362f66eeb5342b859e96f5106b96
-      internalID: -749995538
+      spriteID: 917d8701462e0a14ab0ad047f469feb7
+      internalID: 574014948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chest_01_1
+      name: Sprite-0004_1
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 284
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44531615f1d71af41a3e898b69cbd745
-      internalID: 1495684702
+      spriteID: 1e201c4ee7f86c047aae33186ef741d0
+      internalID: -893154826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chest_01_2
+      name: Sprite-0004_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 284
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1636481e623bd31419ec4dd219064456
-      internalID: -1802190253
+      spriteID: 949787f00cb1aa1478137499d29b62fb
+      internalID: -2066383149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chest_01_3
+      name: Sprite-0004_3
       rect:
         serializedVersion: 2
         x: 48
-        y: 0
+        y: 284
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc2915c008eb92d44ad35104e9f84770
-      internalID: 1389372242
+      spriteID: 392da645aeefdba49ae1ae588858cb34
+      internalID: 1404334232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0004_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 284
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091fc6d6b1624b44380256fab1541a3d
+      internalID: 715263815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0004_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 268
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0309c7a5422f7f047ade21781d220a3d
+      internalID: 2058418646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0004_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 268
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e2e3d63f884b547b429df250662fea
+      internalID: 1459059326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0004_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 268
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80689042b80f33240a9c907472407752
+      internalID: 1151227356
       vertices: []
       indices: 
       edges: []
@@ -212,10 +296,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      chest_01_3: 1389372242
-      chest_01_0: -749995538
-      chest_01_2: -1802190253
-      chest_01_1: 1495684702
+      Sprite-0004_2: -2066383149
+      Sprite-0004_5: 2058418646
+      Sprite-0004_6: 1459059326
+      Sprite-0004_0: 574014948
+      Sprite-0004_1: -893154826
+      Sprite-0004_4: 715263815
+      Sprite-0004_7: 1151227356
+      Sprite-0004_3: 1404334232
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
