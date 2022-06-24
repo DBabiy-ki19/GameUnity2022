@@ -24,13 +24,15 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
     //---------------------------
 
+    public Joystick joystick;
+
+    private Vector2 movementInput;
+
     public float moveSpeed = 1f;
 
     public float collisionOffset = 0.05f;
 
     public ContactFilter2D movementFilter;
-
-    private Vector2 movementInput;
 
     private Rigidbody2D rb;
 
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        movementInput = new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
         if (canMove)
         {
             if (movementInput != Vector2.zero)
@@ -114,13 +117,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnMove(InputValue movementValue)
-    {
-        movementInput = movementValue.Get<Vector2>();
-    }
-
     // Player attack
-    private void OnFire()
+    public void OnAttack()
     {
         animator.SetTrigger("swordAttack");
     }
