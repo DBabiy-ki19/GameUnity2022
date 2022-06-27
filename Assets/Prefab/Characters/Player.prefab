@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5613792237187548721}
   - component: {fileID: 4661769855340572163}
   - component: {fileID: -3310261976016594106}
-  - component: {fileID: 5585664478362571460}
   - component: {fileID: 3810410215466721379}
+  - component: {fileID: 6807749436446578175}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -149,12 +149,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86785a3a4062046a005313695b2489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundAttack: {fileID: 0}
+  attackDamage: 40
+  attackRange: 0.7
   attackPoint: {fileID: 8699414319086324547}
-  attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
-  attackDamage: 40
+    m_Bits: 128
+  maxHealth: 100
+  healthBar: {fileID: 0}
+  joystick: {fileID: 0}
   moveSpeed: 5
   collisionOffset: 0.05
   movementFilter:
@@ -171,36 +175,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
---- !u!114 &5585664478362571460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176572398698009624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2aae9f6dcbaabd64e8648c2e89fd71a9, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!95 &3810410215466721379
 Animator:
   serializedVersion: 4
@@ -221,6 +195,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6807749436446578175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176572398698009624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484f3a065153cb442bf6f58b3d86ad36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsFull: 00000000
+  slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!1 &1515027375687985385
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ public class DialogSwipe : MonoBehaviour
 {
     public GameObject Text1;
     public GameObject Text2;
-    private bool isText1 = true;
     public Quest questScript;
+    private bool isText1 = true;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class DialogSwipe : MonoBehaviour
                 {
                     isText1 = true;
                     questScript.EndDialog = true;
-                    questScript.Quests.SetActive(true);
+                    questScript.quests.SetActive(true);
                 }
             }
             if (isText1 == true)

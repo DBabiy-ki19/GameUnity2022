@@ -110,7 +110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 156874934, guid: ac21a9d2b1b3864428023519e1847801, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb8be9766ae27b45b13517a5acc6eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
   maxHealth: 100
 --- !u!114 &6680172396225621682
 MonoBehaviour:
@@ -211,16 +212,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guardedObject: {fileID: 0}
+  player: {fileID: 0}
   attackDamage: 5
   attackRange: 1
   attackPoint: {fileID: 7525155544078296136}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
-  player: {fileID: 0}
   moveSpot: {fileID: 0}
   startWaitTimePatrol: 0
-  startWaitTimeAttack: 0.8
 --- !u!70 &8641233211592614570
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
