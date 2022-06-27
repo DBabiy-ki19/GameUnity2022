@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1020655242, guid: 11d27b84b8302184eab65081eeb82f2b, type: 3}
+  m_Sprite: {fileID: -2133009376, guid: 11d27b84b8302184eab65081eeb82f2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 0.9375, y: 1.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -127,9 +127,9 @@ BoxCollider2D:
   m_Offset: {x: -0.029732764, y: 0.1850571}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.9375, y: 1.3125}
-    newSize: {x: 3, y: 3}
+    newSize: {x: 0.9375, y: 1.3125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundAttack: {fileID: 0}
+  takeDamage: {fileID: 0}
   attackDamage: 40
   attackRange: 0.7
   attackPoint: {fileID: 8699414319086324547}

@@ -6,9 +6,11 @@ public class DialogSwipe : MonoBehaviour
 {
     public GameObject Text1;
     public GameObject Text2;
-    public Quest questScript;
-    private bool isText1 = true;
+    public GameObject TextComplite;
 
+    public Quest questScript;
+
+    private int i = 0;
     void Start()
     {
 
@@ -17,33 +19,36 @@ public class DialogSwipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*        if (Input.touchCount > 0)
+        if ((questScript.EndDialog == false) && (questScript.IsQuetsComplite == false))
         {
-            Touch touch = Input.GetTouch(0);
-            if ((touch.phase == TouchPhase.Began) ||  (Input.GetMouseButtonDown(0)))*/
-            if (Input.GetMouseButtonDown(0))
+            Text1.SetActive(true);
+            questScript.EndDialog = true;
+            questScript.quests.SetActive(true);
+        }
+
+        if (questScript.IsQuetsComplite == true)
+        {
+            TextComplite.SetActive(true);
+            questScript.IsQuetsCompliteEnd = true;
+            questScript.quests.SetActive(false);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Text1.SetActive(false);
+            Text2.SetActive(true);
+            i++;
+
+
+            if (i >= 2)
             {
-                if (isText1 == true)
-                {
-                    isText1 = false;
-                }
-                else
-                {
-                    isText1 = true;
-                    questScript.EndDialog = true;
-                    questScript.quests.SetActive(true);
-                }
-            }
-            if (isText1 == true)
-            {
-                Text1.SetActive(true);
-                Text2.SetActive(false);
-            }
-            else
-            {
+                Time.timeScale = 1;
+                questScript.EndDialog = true;
+                questScript.dialog1.SetActive(false);
                 Text1.SetActive(false);
-                Text2.SetActive(true);
+                Text2.SetActive(false);
+                TextComplite.SetActive(false);
             }
-        //}
+        }
     }
 }
