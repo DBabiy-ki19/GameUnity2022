@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DialogSwipe : MonoBehaviour
 {
+    public GameObject TakeQuest;
     public GameObject Text1;
     public GameObject Text2;
     public GameObject TextComplite;
@@ -11,16 +13,21 @@ public class DialogSwipe : MonoBehaviour
     public Quest questScript;
 
     private int i = 0;
+
+    private void Awake()
+    {
+        Debug.LogError("Я загрузился!");
+    }
     void Start()
     {
-
+        Debug.Log("Я загрузился!");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if ((questScript.EndDialog == false) && (questScript.IsQuetsComplite == false))
         {
+            TakeQuest.SetActive(false);
             Text1.SetActive(true);
             questScript.EndDialog = true;
             questScript.quests.SetActive(true);
@@ -29,8 +36,8 @@ public class DialogSwipe : MonoBehaviour
         if (questScript.IsQuetsComplite == true)
         {
             TextComplite.SetActive(true);
-            questScript.IsQuetsCompliteEnd = true;
             questScript.quests.SetActive(false);
+            questScript.IsQuetsCompliteEnd = true;
         }
 
         if (Input.GetMouseButtonDown(0))
